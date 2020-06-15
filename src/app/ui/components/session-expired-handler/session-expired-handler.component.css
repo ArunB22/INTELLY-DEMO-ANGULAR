@@ -1,0 +1,41 @@
+:host {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #E5EAF1;
+  top: 0;
+  left: 0;
+}
+
+/*.btn-container {
+  margin: 28% auto;
+  width: max-content;
+}*/
+.session-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 85vh;
+  color: #495057;
+}
+.session-center h1{
+  font-size: 4rem;
+}
+.session-center p {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: bold;
+}
+.session-center a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+/*.session-center .btn-secondary{
+  font-size: 1.2rem;
+  padding: 15px 30px;
+}*/
+
+.blue-text {
+  color: #00B1F7 !important;
+}

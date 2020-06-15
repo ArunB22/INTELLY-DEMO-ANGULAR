@@ -1,0 +1,167 @@
+
+.title {
+  float: left;
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #333;
+  padding: 3px;
+  margin-left: -3px;
+}
+.sub_title {
+  float: left;
+}
+.title_col {
+  float: left;
+  width: 100px;
+  margin-left: 15px;
+}
+.header_row {
+  border-bottom: 1px solid #eee;
+  height: 61px;
+}
+.add_board_row {
+  width: auto;
+  margin-top: 6px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn_col .btn{
+  line-height: 15px;
+}
+.dropdown-menu {
+  padding: 0px;
+  min-width: auto;
+}
+.dropdown-menu li {
+  cursor: pointer;
+  font-size: 14px;
+}
+.dropdown-menu li:hover {
+  background: #343a40;
+  color: #fff;
+}
+.status {
+  width: 20%;
+}
+.listing_content {
+  width: 60%;
+  margin-top: 6px;
+}
+.listing_edit {
+  width: 6%;
+  margin-top: 20px;
+}
+.listing_change {
+  width: 6%;
+  margin-top: 20px;
+}
+.listing_change img {
+  width:24px;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 8px;
+}
+.tag_menu {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+.tag_menu li {
+  float: left;
+  padding: 3px 5px;
+  line-height: 12px;
+  font-size: 12px;
+  color: #fff;
+  background: #aaa;
+  opacity: 0.6;
+}
+.tag_menu li:hover {opacity: 1}
+.listing_col {
+  float: left;
+  width: 100%;
+  height: 80px;
+  min-height: 80px;
+  margin: 0 0 15px 0;
+  background: rgba(0,0,0,0.03);
+}
+.edit {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  text-align: center;
+  margin: 0px auto;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.edit:hover {
+  border-color: #444444;
+  background-color: #444444;
+}
+.status_btn {
+  width: 110px;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  cursor: default;
+  -webkit-border-radius: 13px;
+  -moz-border-radius: 13px;
+  border-radius: 13px;
+  margin: 27px 45px;
+  color: #fff;
+  /*background: #b977e6;*/
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+}
+.listing_row {
+  border-top: 1px solid #ccc;
+  width: 100%;
+  position: relative;
+  float: left;
+  height: calc( 100% - 112px);
+}
+.board_addr {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  margin-top: 2px;
+}
+.listing_content span {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 30px;
+}
+.fa-pencil-alt {
+  margin-top: 10px;
+  color: #ccc;
+}
+.btn-group .btn-secondary:hover {
+  background: #27aae1;
+  border-color: #27aae1;
+}
+.board_input {
+  height: 30px;
+  border-radius: 4px;
+}
+.search_block {
+  background: #F0F2F8;
+  padding: 10px;
+}
+.total_text {
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 7px;
+}
+
+.fa-angle-right, .fa-angle-left, .fa-angle-double-right, .fa-angle-double-left {
+  color: #00B9F3;
+}
+
+.list-loader {
+  height: 100%;
+  width: 100%;
+}

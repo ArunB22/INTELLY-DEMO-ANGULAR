@@ -1,0 +1,13 @@
+.loader {
+  width: 24px;
+  margin-bottom: -11px;
+  margin-top: -11px;
+  margin-right: -11px;
+}
+
+:host {
+  display: block;
+  background: none;
+  position: relative;
+  border: none;
+}

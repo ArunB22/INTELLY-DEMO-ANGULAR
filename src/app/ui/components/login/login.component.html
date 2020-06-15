@@ -1,0 +1,52 @@
+<div class="login_block overlay">
+  <div class="login_container">
+    <div class="row">
+      <div class="col-md-12 margin-bottom">
+        <div class="text-center">
+          Company LOGO
+          <p class="forgot welcome">Welcome back! please login to your account.</p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <form #loginForm="ngForm">
+          <div class="form-group margin-bottom">
+            <input type="email" class="form-control" id="email" name="email" [class.invalidInput]="loginForm.submitted && emailInput.invalid" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required placeholder="Email" #emailInput="ngModel" autocomplete="off" [(ngModel)]="email">
+            <div *ngIf="emailInput.dirty || emailInput.touched || loginForm.submitted">
+              <!--<p class="alert-danger" *ngIf="emailInput.errors?.required">Email is required!</p>-->
+              <p class="alert-danger" *ngIf="emailInput.errors?.pattern && !emailInput.errors.required">Invalid Email!</p>
+            </div>
+            <div class="row no-margin" *ngIf="errorMsgFlag">
+              <div class="col-md-12 alert-danger"> {{errorMsg}}</div>
+            </div>
+          </div>
+          <div class="form-group margin-bottom password">
+            <input type="password" class="form-control no-border" autocomplete="off" id="password" [class.invalidInput]="loginForm.submitted && passInput.invalid" name="password" required [(ngModel)]="password" #passInput="ngModel" placeholder="Password">
+            <div *ngIf="passInput.dirty || passInput.touched || loginForm.submitted">
+              <!--<p class="alert-danger" *ngIf="passInput.errors?.required">Password is required!</p>-->
+              <p class="alert-danger" *ngIf="passInput.errors?.minlength">Minimum 6 characters required!</p>
+              <p class="alert-danger" *ngIf="passInput.errors?.maxlength">Maximum 30 allowed here!</p>
+            </div>
+            <div class="row no-margin" *ngIf="passMsgFlag">
+              <div class="col-md-12 alert-danger"> {{passwordMsg}}</div>
+            </div>
+          </div>
+          <div class="form-group full_width">
+            <div class="login_btn">
+              <app-loading-button type="submit" [text]="'Sign In'" [Loadingflag]="loadFlag"  [class]="'btn-secondary login-btn full_width'" (buttonClick)="onLogin()"></app-loading-button>
+            </div>
+          </div>
+          <div class="form-group full_width">
+            <div class="col-md-8 float-left">
+              <p class=" signup-text">Don't have an account? <span class="signup" (click)="redirectToRegister()">Sign Up here</span></p>
+            </div>
+            <div class="col-md-4 float-left text-right signup-text p-0">
+              <span class=" signup" (click)="forgotPassword()">Forgot Password ?</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

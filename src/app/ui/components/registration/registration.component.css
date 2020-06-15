@@ -1,0 +1,50 @@
+.reg_btn .btn-secondary {
+  width: 100%;
+}
+.reg_btn {
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+}
+.sign_up {
+  float: right;
+  width: 215px;
+}
+.margin-bottom {margin-bottom: 15px;}
+.form-control {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+.form-check-label, .forgot{color: #6c757d}
+.password {position: relative}
+.welcome {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #00B9F3;
+  font-weight: bold;
+}
+input {
+  height: 30px;
+}
+.terms {margin-top: 0px;font-size: 12px;margin-bottom: 5px}
+.terms span {
+  color: #00B9F3;
+  cursor: pointer;
+}
+.alert-danger {padding: 5px}
+.terms a {
+  color: #00B9F3;
+}
+.form-group:last-child {
+  margin-bottom: 0px;
+}
+.login_container {
+  padding: 30px 30px 10px 30px;
+}
+.login_block {
+  padding: 6% 0px;
+}
+

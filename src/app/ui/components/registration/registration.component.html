@@ -1,0 +1,60 @@
+<div class="login_block overlay">
+  <div class="login_container">
+    <div class="row">
+      <div class="col-md-12 margin-bottom">
+        <div class="text-center">
+         Company LOGO
+          <p class="forgot welcome">Sign Up with INTELLYLABS</p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <form #registerForm="ngForm">
+          <div class="form-group margin-bottom">
+            <input type="text" class="form-control" [class.invalidInput]="nameInput.invalid && registerForm.submitted" pattern="^[A-Za-z- ]+$" id="nameInput" minlength="2" maxlength="50" autocomplete="off" name="nameInput" required placeholder="Name" [(ngModel)]="name" #nameInput="ngModel" >
+            <div *ngIf="nameInput.dirty || nameInput.touched || registerForm.submitted">
+              <p class="alert-danger" *ngIf="nameInput.errors?.pattern">Only alphabet allowed!</p>
+            </div>
+          </div>
+          <div class="form-group margin-bottom">
+            <input type="email" class="form-control" [class.invalidInput]="emailInput.invalid && registerForm.submitted" autocomplete="off" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" id="emailInput" name="emailInput" required placeholder="Email" #emailInput="ngModel" [(ngModel)]="email">
+            <div *ngIf="emailInput.dirty || emailInput.touched || registerForm.submitted">
+              <!--<p class="alert-danger" *ngIf="emailInput.errors?.required">Email is required!</p>-->
+              <p class="alert-danger" *ngIf="emailInput.errors?.pattern && !emailInput.errors.required">Invalid Email!</p>
+            </div>
+          </div>
+          <div class="form-group margin-bottom password">
+            <input type="password" name="passwordInput" [class.invalidInput]="passwordInput.invalid && registerForm.submitted" autocomplete="off" id="passwordInput" class="form-control no-border" minlength="6" maxlength="30" required  [(ngModel)]="password" placeholder="Password" #passwordInput="ngModel" >
+            <div *ngIf="passwordInput.dirty || passwordInput.touched || registerForm.submitted">
+              <!--<p class="alert-danger" *ngIf="passwordInput.errors?.required">Password is required!</p>-->
+              <p class="alert-danger" *ngIf="passwordInput.errors?.minlength">Minimum 6 characters required!</p>
+              <p class="alert-danger" *ngIf="passwordInput.errors?.maxlength">Maximum 30 allowed here!</p>
+            </div>
+          </div>
+          <div class="form-group margin-bottom password">
+            <input type="password" class="form-control no-border" [class.invalidInput]="confirmPassInput.invalid && registerForm.submitted" autocomplete="off" name="confirmPassInput" id="confirmPassInput" #confirmPassInput="ngModel"  required [(ngModel)]="confirmPass" placeholder="Confirm password">
+            <div *ngIf="confirmPassInput.dirty || confirmPassInput.touched || registerForm.submitted">
+              <!--<p class="alert-danger" *ngIf="confirmPassInput.errors?.required">Confirm password is required!</p>-->
+              <p class="alert-danger" *ngIf="!checkConfirmPass() && !confirmPassInput.errors?.required">Password does not match!</p>
+            </div>
+          </div>
+          <div class="full_width">
+            <p class="terms ">By creating this account, you agree to our <span><a href="#" target="_blank">Terms & Conditions</a></span> & <span>Privacy Policy.</span></p>
+          </div>
+          <div class="form-group full_width">
+            <div class="reg_btn">
+              <app-loading-button type="submit" [text]="'Sign Up'" [Loadingflag]="loadFlag"  [class]="'btn-secondary login-btn full_width'" (buttonClick)="onRegister(registerForm)"></app-loading-button>
+
+
+            </div>
+          </div>
+          <div class="form-group full_width">
+            <p class="text-center signup-text">Already have an account? <span class="signup" (click)="redirectToLogin()">Sign In here</span></p>
+          </div>
+          <!--<div class="full_width">-->
+          <!--<button  class="btn btn-secondary float-right">Sign In</button>-->
+          <!--</div>-->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

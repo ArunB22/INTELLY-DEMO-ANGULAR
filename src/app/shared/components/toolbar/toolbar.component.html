@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="col-md-12 haeder_row">
+    <div class="col-md-6 no-padding">
+      <div class="logo" (click)="reDirectToLandingPage()" data-target="#sidebar" data-toggle="collapse">
+        <img src='assets/images/favicon.ico'>
+      </div>
+    </div>
+    <div class="col-md-6 no-padding float-right">
+      <div class="top-right-icons">
+        <div class="author_logo dropdown">
+          <div class="dropdown" dropdown #dropdown1="bs-dropdown"  (onShown)="onShown1()">
+            <span class="cursor" dropdownToggle >
+            {{dataManagerUI.user_email}}
+            <span class="dropdown-toggle" ><i class="fas fa-chevron-down"></i></span></span>
+            <div class="dropdown-menu" *dropdownMenu role="menu" aria-labelledby="button-basic">
+              <div class="triangle"><i class="fas fa-caret-up"></i></div>
+              <div class="dropdown-item" (click)="profile()">
+                <span class="profile_icon"><i class="fas fa-user-circle"></i></span>
+                <span class="profile_info">Profile</span>
+              </div>
+              <div class="dropdown-item" (click)="settings()">
+                <span class="profile_icon"><i class="fas fa-cog"></i></span>
+                <span class="profile_info">Settings</span>
+              </div>
+              <div class="dropdown-item" (click)="logOut()">
+                <span class="profile_icon"><i class="fas fa-sign-out-alt"></i></span>
+                <span class="profile_info">Log Out</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bell_icon dropdown" dropdown #dropdown2="bs-dropdown" (onHidden)="onHidden2()"
+             (onShown)="onShown2()">
+          <span id="button-basic" dropdownToggle class="dropdown-toggle cursor"
+                aria-controls="dropdown-basic">
+            <i class="fas fa-bell"></i>
+            <button class="pulsating-circle span_button cursor" (click)="pulsClick(); $event.stopPropagation()"
+                    *ngIf="(showPulsationIcon === true) || (dataManagerUI.is_new_notification === true)"></button>
+          </span>
+
+          <div class="dropdown-menu notify_dropdown" *dropdownMenu role="menu" aria-labelledby="button-basic">
+            <div class="notify_triangle"><i class="fas fa-caret-up"></i></div>
+            <div class="nofify_box">
+              <ul class="notify_menu" >
+                <li role="menuitem" *ngIf="notificationList?.data?.length < 1">
+                  <p>No new notifications!</p>
+                </li>
+                <ng-container *ngIf="notificationList?.data?.length > 0">
+                  <li role="menuitem" *ngFor="let notification of notificationList.data"><p>{{notification.notification_text}}</p>
+                    <small>{{notification.created_at.date | date : 'dd/MM/yyyy'}}</small>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

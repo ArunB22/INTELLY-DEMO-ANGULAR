@@ -1,0 +1,21 @@
+/*.center-image-container {
+  width:max-content;
+  margin:14% auto;
+}*/
+.error-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 85vh;
+  color: #495057;
+}
+.error-center h1{
+  font-size: 4rem;
+}
+.error-center h5 {
+  font-size: 2rem;
+  line-height: 1.4;
+}
+
+

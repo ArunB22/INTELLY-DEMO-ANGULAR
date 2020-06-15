@@ -1,0 +1,140 @@
+<div class="full_width">
+  <div class="row no-margin header_row">
+    <div class="col-md-6 float_left no-padding">
+      <!--<div class="boards_icon">-->
+      <!--<i class="fa fa-gavel"></i>-->
+      <!--</div>-->
+      <div class="title_col">
+        <div class="title">Repairs</div>
+        <!--<div class="sub_title">-->
+        <!--<span>1</span> Boards-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="col-md-6 no-padding float-right">
+      <div class="add_board_row float-right">
+        <div class="full_widt text-center" (click)="actionNotAllowed()">
+          <i class="fa fa-plus"></i>
+          <div class="">Repair Request</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row no-margin boards_body_sec">
+    <div class="board_container">
+      <div class="row no-margin mb-3 search_block">
+        <div class="col-md-3 no-padding float-left">
+          <app-search [title]="'Search by board name'"
+                      (searchVariable)="searchText = $event; listApi($event, null)"></app-search>
+        </div>
+        <div class="col-md-9 float-right no-padding">
+          <div class="btn_col float-right ml-2" *ngFor="let statusbtn of btngroup">
+            <button (click)="classChange(statusbtn.status)" [disabled]="loadFlag && !errMsg"
+                    [class.active]="current_status === statusbtn.status"
+                    class="btn btn-outline-dark">{{statusbtn.btnstatus}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row no-margin mb-3">
+        <div class="col-md-6 float_left no-padding">
+          <div class="btn-group float-left" role="group">
+            <button id="btnGroupDrop1" (click)="onSelect()" type="button" class="btn btn-secondary">
+              <span *ngIf="IsHidden"><img class="sorting-arrow"  src="../../../../assets/logo/up_arrow.svg"></span>
+              <span *ngIf="!IsHidden"><img class="sorting-arrow"  src="../../../../assets/logo/down_arrow.svg"></span>
+              {{orderByName}}
+            </button>
+            <button id="btnGroupDrop2" type="button" class="btn btn-secondary dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <li class="dropdown-item" *ngFor="let order of orderByList"
+                  (click)="orderBy = order.key; orderByName = order.name; firstPageCall(); ">
+                {{order.name}}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 float-left no-padding">
+          <div class="pagination">
+            <div class="col-md-6 float-left no-padding">
+              <p class="mb-0 total_text">Displaying {{bbList.meta.pagination.page_num &&
+                bbList.meta.pagination.total ?
+                bbList.meta.pagination.page_num : '0'}}-{{bbList.meta.pagination.count ?
+                bbList.meta.pagination.count: '0'}} of {{bbList.meta.pagination.total ?
+                bbList.meta.pagination.total: '0'}} Repair Requests</p>
+            </div>
+            <div class="col-md-6 float-right no-padding">
+              <span class="float-right ml-2" *ngIf="!disableLast" (click)="actionNotAllowed()" title="Last"><i
+                class="fas fa-angle-double-right"></i></span>
+              <span class="float-right ml-2" *ngIf="disableNext"
+                    (click)="actionNotAllowed()" title="Next"><i
+                class="fas fa-angle-right "></i></span>
+              <p class="mb-1 page_count float-right ml-2">page {{bbList.meta.pagination.current_page ?
+                bbList.meta.pagination.current_page: '0'}}
+                of {{bbList.meta.pagination.total_pages ? bbList.meta.pagination.total_pages : '0'}}</p>
+              <span *ngIf="disablePrev" class="float-right ml-2" title="Previous"
+                    (click)="actionNotAllowed()"><i
+                class="fas fa-angle-left"></i></span>
+
+              <span class="float-right ml-2" *ngIf="!disableFirst" (click)="actionNotAllowed()" title="First"><i
+                class="fas fa-angle-double-left"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="listing_row full_width no-padding pt-3">
+          <ng-container *ngFor="let  repair of bbList.data">
+            <div class="listing_col">
+              <div class="status float_left">
+                <ng-container *ngIf="repair.status === 'approved'">
+                  <div class="status_btn approved" placement="top"
+                       ngbTooltip="The repair has been reviewed by the Tech team, and is available for delivery">
+                    <i class="fa fa-check"></i> Approved
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="repair.status === 'pending'">
+                  <div class="status_btn pending" placement="top"
+                       ngbTooltip="The repair is being reviewed by the Tech team">
+                    <i class="fa fa-bookmark"></i> Pending
+                  </div>
+                </ng-container>
+              </div>
+              <div class="listing_content float_left">
+                <div class="repair_addr">{{repair.mName?repair.mName:''}}
+                </div>
+                <div class="full_width">
+                  <span>Ref# {{repair.id}}</span>
+                </div>
+                <div class="tags full_width">
+                  <ul class="tag_menu">
+                    <li>{{repair.description ? repair.description : '--'}}</li>
+                  </ul>
+                </div>
+              </div>
+
+
+              <div class="listing_change float-right">
+                <a (click)="actionNotAllowed()">
+                  <div class="edit" placement="top" ngbTooltip="Change Repair Request">
+                    <img src="../../../../assets/images/change_request_icon.svg" class="img-fluid">
+                  </div>
+                </a>
+              </div>
+
+              <div class="listing_edit float-right">
+                <a (click)="actionNotAllowed()">
+                  <div class="edit" placement="top" ngbTooltip="Edit Info">
+                    <i class="fas fa-pencil-alt"></i>
+                  </div>
+                </a>
+              </div>
+
+
+            </div>
+          </ng-container>
+        </div>
+
+    </div>
+  </div>
+</div>

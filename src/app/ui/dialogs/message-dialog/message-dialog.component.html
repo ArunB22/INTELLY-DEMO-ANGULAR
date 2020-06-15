@@ -1,0 +1,15 @@
+<div class="dialog-container">
+  <div class="heading">{{data.heading}}</div>
+  <div class="clearfix"></div>
+  <div class="message-body border p-2">
+    {{data.message}}
+  </div>
+  <div class="button-container">
+    <div class="col-sm-12 text-right pb-0 pr-0">
+    <button class="btn btn-secondary" [mat-dialog-close]="true">{{type ? 'Confirm' : 'Ok'}}</button>
+    <button class="btn btn-secondary ml-2" *ngIf="type" [mat-dialog-close]="false">Cancel</button>
+    </div>
+  </div>
+</div>
+
+

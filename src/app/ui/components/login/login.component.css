@@ -1,0 +1,27 @@
+.login_btn {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+.login_btn .btn-secondary {
+  width: 100%;
+}
+.sign_up {
+  float: right;
+  width: 200px;
+}
+.sign_up .btn-outline-secondary {width: 100%;}
+.margin-bottom {margin-bottom: 15px;}
+.form-control {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+.form-check-label, .forgot{color: #6c757d}
+.password {position: relative}
+
+.welcome {
+  margin-top: 20px;
+}
+.alert {color: red}
+

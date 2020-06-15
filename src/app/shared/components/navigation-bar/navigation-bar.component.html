@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row wrapper no-margin">
+    <app-toolbar class="full_width"></app-toolbar>
+    <div class="full_width">
+      <div class="left_block">
+        <div class="menu_col">
+          <ul class="menu_list full_width">
+              <li class="menu_item" routerLink="/landing" routerLinkActive="active">
+                  <span title="Repairs">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                  </span>
+                  <span></span>
+              </li>
+          </ul>
+        </div>
+      </div>
+      <div class="right_block">
+        <router-outlet class="nav_outlet"></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
